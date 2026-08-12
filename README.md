@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌸 Luna — Period Tracker
+#Period Tracker
 
 **Pelacak siklus menstruasi yang modern, aesthetic, dan 100% privasi.**
 
@@ -209,7 +209,7 @@ Didistribusikan di bawah lisensi **MIT**. Lihat file [`LICENSE`](LICENSE) untuk 
 
 Dibuat dengan 💜 untuk membantu kamu lebih memahami siklus tubuhmu.
 
-**Luna** · *Period Track* · 🌸
+· *Period Track* · 🌸
 
 </div>
 
