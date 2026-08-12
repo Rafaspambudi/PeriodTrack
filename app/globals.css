@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 350 60% 98.5%;
+    --foreground: 335 30% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 335 30% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 335 30% 13%;
+    --primary: 340 80% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 345 45% 94%;
+    --secondary-foreground: 335 25% 25%;
+    --muted: 345 45% 94%;
+    --muted-foreground: 335 14% 44%;
+    --accent: 345 50% 93%;
+    --accent-foreground: 335 30% 18%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 345 40% 90%;
+    --input: 345 30% 87%;
+    --ring: 340 80% 56%;
+    --radius: 1.1rem;
+  }
+
+  .dark {
+    --background: 265 34% 8.5%;
+    --foreground: 330 22% 92%;
+    --card: 264 30% 11.5%;
+    --card-foreground: 330 22% 92%;
+    --popover: 264 30% 11.5%;
+    --popover-foreground: 330 22% 92%;
+    --primary: 340 84% 67%;
+    --primary-foreground: 264 30% 10%;
+    --secondary: 264 24% 17.5%;
+    --secondary-foreground: 330 22% 90%;
+    --muted: 264 24% 17.5%;
+    --muted-foreground: 264 12% 64%;
+    --accent: 264 24% 21%;
+    --accent-foreground: 330 22% 92%;
+    --destructive: 0 62% 47%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 264 20% 21%;
+    --input: 264 18% 26%;
+    --ring: 340 84% 67%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  button,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  ::selection {
+    @apply bg-primary/25 text-foreground;
+  }
+}
+
+/* Scrollbar halus */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: hsl(var(--muted-foreground) / 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Interaksi halus untuk sel kalender */
+.calendar-day {
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+.calendar-day:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 20px -8px rgba(244, 114, 182, 0.45);
+  z-index: 1;
+}
+.calendar-day:active {
+  transform: scale(0.92);
+}
+
+/* Range input */
+input[type="range"] {
+  accent-color: hsl(var(--primary));
+}
+
+/* Date input icon agar konsisten di dark mode */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Cegah auto-zoom Safari iOS saat fokus input (butuh ukuran font >= 16px) */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
